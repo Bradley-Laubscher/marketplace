@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/Pages/about_us.dart';
+import 'package:marketplace/Pages/checkout.dart';
 import 'package:marketplace/Pages/faq.dart';
 import 'package:marketplace/Pages/products.dart';
 
@@ -17,6 +18,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0; // Track selected tab
+  List<Map<String, dynamic>> _cart = []; // Cart list to store selected products
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ class _HomePageState extends State<HomePage> {
                     _buildNavItem("Products", 0),
                     _buildNavItem("About Us", 1),
                     _buildNavItem("FAQ", 2),
+                    _buildNavItem("Checkout", 3),
                   ],
                 ),
                 actions: [
@@ -86,13 +89,29 @@ class _HomePageState extends State<HomePage> {
   Widget _buildContent() {
     switch (_selectedIndex) {
       case 0:
-        return ProductsPage(merchant: widget.merchant);
+        return ProductsPage(
+          merchant: widget.merchant,
+          onAddToCart: (product) {
+            setState(() {
+              _cart.add(product);
+            });
+          },
+        );
       case 1:
         return AboutUsPage(merchant: widget.merchant);
       case 2:
         return const FAQPage();
+      case 3:
+        return CheckoutPage(cart: _cart);
       default:
-        return ProductsPage(merchant: widget.merchant);
+        return ProductsPage(
+          merchant: widget.merchant,
+          onAddToCart: (product) {
+            setState(() {
+              _cart.add(product);
+            });
+          },
+        );
     }
   }
 }
