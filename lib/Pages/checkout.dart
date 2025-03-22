@@ -45,8 +45,20 @@ class _CheckoutPageState extends State<CheckoutPage> {
     });
 
     return widget.cart.isEmpty
-        ? const Center(child: Text('Your cart is empty', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)))
-        : Padding(
+      ? Center(
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          padding: const EdgeInsets.all(10),
+          child: const Text(
+            'Your cart is empty',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        ),
+      )
+      : Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
