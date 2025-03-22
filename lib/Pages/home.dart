@@ -89,6 +89,7 @@ class _HomePageState extends State<HomePage> {
                           style: BorderStyle.solid
                         )
                       ),
+                      margin: const EdgeInsets.only(right: 10),
                       child: IconButton(
                         icon: const Icon(Icons.close),
                         hoverColor: Colors.red,
@@ -152,7 +153,10 @@ class _HomePageState extends State<HomePage> {
       case 2:
         return const FAQPage();
       case 3:
-        return CheckoutPage(cart: _cart);
+        return CheckoutPage(
+          cart: _cart,
+          merchant: widget.merchant,
+        );
       default:
         return ProductsPage(
           merchant: widget.merchant,
