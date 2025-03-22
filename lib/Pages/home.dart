@@ -31,29 +31,76 @@ class _HomePageState extends State<HomePage> {
             widget.merchant["merchantBanner"],
             fit: BoxFit.cover,
           ),
-
-          // Content with AppBar
           Column(
             children: [
-              AppBar(
-                backgroundColor: Color(widget.merchant["merchantPrimaryColour"]).withOpacity(0.9), // Merchant's theme color
-                title: Row(
+              // Merchant Title & Logo
+              Container(
+                padding: const EdgeInsets.all(12.0),
+                color: Color(widget.merchant["merchantPrimaryColour"]),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _buildNavItem("Products", 0),
-                    _buildNavItem("About Us", 1),
-                    _buildNavItem("FAQ", 2),
-                    _buildNavItem("Checkout", 3),
+                    // Merchant Logo
+                    CircleAvatar(
+                      radius: 24, // Adjust size as needed
+                      backgroundImage: AssetImage(widget.merchant["merchantLogo"]),
+                      backgroundColor: Colors.transparent,
+                    ),
+                    const SizedBox(width: 10), // Spacing between logo and title
+                    // Merchant Name
+                    Text(
+                      widget.merchant["merchantName"],
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                        color: Colors.black,
+                      ),
+                    )
                   ],
                 ),
-                actions: [
-                  IconButton(
-                    icon: const Icon(Icons.close),
-                    onPressed: () {
-                      Navigator.pop(context); // Navigate back to LoginPage
-                    },
+              ),
+              Container(
+                decoration: const BoxDecoration(
+                  border: Border(
+                    top: BorderSide(width: 1, color: Colors.black, style: BorderStyle.solid),
+                    bottom: BorderSide(width: 1, color: Colors.black, style: BorderStyle.solid)
+                  )
+                ),
+                child: AppBar(
+                  automaticallyImplyLeading: false,
+                  backgroundColor: Colors.white,
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildNavItem("Products", 0),
+                      _buildNavItem("About Us", 1),
+                      _buildNavItem("FAQ", 2),
+                      _buildNavItem("Checkout", 3),
+                    ],
                   ),
-                ],
+                  actions: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2,
+                          style: BorderStyle.solid
+                        )
+                      ),
+                      child: IconButton(
+                        icon: const Icon(Icons.close),
+                        hoverColor: Colors.red,
+                        tooltip: "Log Out",
+                        onPressed: () {
+                          // Navigate back to LoginPage
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Expanded(child: _buildContent()),
             ],
@@ -71,15 +118,18 @@ class _HomePageState extends State<HomePage> {
           _selectedIndex = index;
         });
       },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12.0),
-        child: Text(
-          title,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.easeInOut,
+        padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: _selectedIndex == index ? 8.0 : 4.0), // Adjust padding on selection
+        child: AnimatedDefaultTextStyle(
+          duration: const Duration(milliseconds: 200),
           style: TextStyle(
-            fontSize: 16,
+            fontSize: _selectedIndex == index ? 20 : 18, // Slight size increase
             fontWeight: FontWeight.bold,
-            color: _selectedIndex == index ? Colors.white : Colors.white70,
+            color: _selectedIndex == index ? Colors.black : Colors.black38,
           ),
+          child: Text(title),
         ),
       ),
     );

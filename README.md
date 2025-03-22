@@ -1,16 +1,9 @@
 # marketplace
 
-A dynamic marketplace for multiple merchant types
+A dynamic marketplace for multiple merchant types.
 
-## Getting Started
+This webapp can be re-used by multiple merchants, as the title, logo, theme and products can be changed to fit a specific merchant, by simply adjusting a single config file.
 
-This project is a starting point for a Flutter application.
+All the configuration that is necessary to adjust when setting up a new merchant is within the config.dart file. Once the merchant is configured within this file, the site will update accordingly when that merchant is selected.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The ability to select a merchant from a list of merchants is only to demonstrate how the application updates when a different merchant is configured.
