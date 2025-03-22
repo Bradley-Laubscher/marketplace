@@ -29,9 +29,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
   Widget build(BuildContext context) {
     // Grouping items by productName and counting quantities
     Map<String, int> itemCounts = {};
-    widget.cart.forEach((item) {
+    for (var item in widget.cart) {
       itemCounts[item['productName']] = (itemCounts[item['productName']] ?? 0) + 1;
-    });
+    }
 
     double total = 0;
     List<Map<String, dynamic>> uniqueCartItems = [];
@@ -155,66 +155,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
             ),
           ),
-          // Expanded(
-          //   child: SizedBox(
-          //     width: MediaQuery.of(context).size.width*0.3,
-          //     child: ListView.builder(
-          //       itemCount: uniqueCartItems.length,
-          //       itemBuilder: (context, index) {
-          //         var item = uniqueCartItems[index];
-          //         return Card(
-          //           margin: const EdgeInsets.symmetric(vertical: 8.0),
-          //           shape: RoundedRectangleBorder(
-          //             borderRadius: BorderRadius.circular(12),
-          //           ),
-          //           elevation: 5,
-          //           child: ListTile(
-          //             contentPadding: const EdgeInsets.all(16.0),
-          //             leading: Image.asset(
-          //               item['productImage'],
-          //               width: 50,
-          //               height: 50,
-          //               fit: BoxFit.cover,
-          //             ),
-          //             title: Text(
-          //               item['productName'],
-          //               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          //             ),
-          //             subtitle: Column(
-          //               crossAxisAlignment: CrossAxisAlignment.start,
-          //               children: [
-          //                 Text(
-          //                   '${checkCurrencyCode()}${item['productPrice']}',
-          //                   style: const TextStyle(fontSize: 16, color: Colors.grey),
-          //                 ),
-          //                 Text(
-          //                   'Quantity: ${item['quantity']}',
-          //                   style: const TextStyle(fontSize: 14, color: Colors.grey),
-          //                 ),
-          //               ],
-          //             ),
-          //             trailing: IconButton(
-          //               icon: const Icon(Icons.remove_circle, color: Colors.red),
-          //               onPressed: () {
-          //                 setState(() {
-          //                   // Find the specific product and reduce its quantity by 1
-          //                   var cartItemToRemove = uniqueCartItems.firstWhere((cartItem) => cartItem['productName'] == item['productName']);
-          //                   if (cartItemToRemove['quantity'] > 1) {
-          //                     Map itemToRemove = widget.cart.firstWhere((cartItem) => cartItem["productName"] == cartItemToRemove["productName"]);
-          //                     widget.cart.remove(itemToRemove);
-          //                   } else {
-          //                     // Remove the item from the cart if quantity is 1
-          //                     widget.cart.removeWhere((cartItem) => cartItem['productName'] == item['productName']);
-          //                   }
-          //                 });
-          //               },
-          //             ),
-          //           ),
-          //         );
-          //       },
-          //     ),
-          //   ),
-          // ),
           const SizedBox(height: 20),
           Container(
             decoration: BoxDecoration(
@@ -245,6 +185,28 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     // Handle checkout logic
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Proceeding to payment')),
+                    );
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text("Payment Initiation"),
+                          content: const Text(
+                            "This action will initiate a payment request containing transaction details and redirect "
+                            "to a POS system where the customer can complete the payment.\n"
+                            "Once the payment is successful, they will be redirected back to the website.\n\n"
+                            "Unfortunately, this demo will not include these steps."
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop(); // Close dialog
+                              },
+                              child: const Text("Close"),
+                            ),
+                          ],
+                        );
+                      },
                     );
                   },
                   child: const Text(
