@@ -35,6 +35,8 @@ class _SelectMerchantState extends State<SelectMerchant> {
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),  // Match the same radius as other fields
             ),
+            filled: true,
+            fillColor: Colors.white
           ),
           dropdownColor: Colors.white,
           icon: const Icon(Icons.arrow_drop_down, color: Colors.blueGrey),

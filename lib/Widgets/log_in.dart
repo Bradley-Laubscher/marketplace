@@ -19,77 +19,85 @@ class _LoginCardState extends State<LoginCard> {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(250.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Login Card
-            Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    // Select Merchant
-                    const SelectMerchant(),
-                    const SizedBox(height: 15),
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width*0.3,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Login Card
+              Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                color: Colors.white12,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      // Select Merchant
+                      const SelectMerchant(),
+                      const SizedBox(height: 15),
 
-                    // Username Field
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: "Username",
-                        hintText: "Proceed to login - No Credentials needed for demonstration",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
+                      // Username Field
+                      TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Username",
+                          hintText: "Proceed to login - No Credentials needed for demonstration",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          filled: true,
+                          fillColor: Colors.white
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 15),
+                      const SizedBox(height: 15),
 
-                    // Password Field
-                    TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: "Password",
-                        hintText: "Proceed to login - No Credentials needed for demonstration",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
+                      // Password Field
+                      TextFormField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          labelText: "Password",
+                          hintText: "Proceed to login - No Credentials needed for demonstration",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          filled: true,
+                          fillColor: Colors.white
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 20),
+                      const SizedBox(height: 20),
 
-                    // Log In Button
-                    ElevatedButton(
-                      onPressed: () {
-                        // Handle login action here
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomePage(merchant: selectedMerchant)),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                      // Log In Button
+                      ElevatedButton(
+                        onPressed: () {
+                          // Handle login action here
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage(merchant: selectedMerchant)),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          backgroundColor: Color(selectedMerchant["merchantPrimaryColour"])
                         ),
-                        backgroundColor: Color(selectedMerchant["merchantPrimaryColour"])
-                      ),
-                      child: const Text(
-                        "Log In",
-                        style: TextStyle(
-                          color: Colors.white
+                        child: const Text(
+                          "Log In",
+                          style: TextStyle(
+                            color: Colors.white
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
