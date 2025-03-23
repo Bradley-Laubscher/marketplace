@@ -36,11 +36,11 @@ class _HomePageState extends State<HomePage> {
               // **AppBar with Merchant Logo and Navigation Items**
               AppBar(
                 automaticallyImplyLeading: false,
-                backgroundColor: Colors.white,
+                backgroundColor: Color(widget.merchant["merchantPrimaryColour"]),
                 title: LayoutBuilder(
                   builder: (context, constraints) {
                     // Only show the merchant name if the screen is wide enough
-                    bool showMerchantName = constraints.maxWidth > 600; // You can adjust this threshold
+                    bool showMerchantName = constraints.maxWidth > 600;
 
                     return Row(
                       children: [
