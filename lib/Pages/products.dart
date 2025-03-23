@@ -168,7 +168,12 @@ class _ProductsPageState extends State<ProductsPage> {
           width: MediaQuery.of(context).size.width*0.3,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(10)
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              width: 2,
+              color: Color(widget.merchant["merchantPrimaryColour"]),
+              style: BorderStyle.solid
+            )
           ),
           child: TextField(
             controller: _searchController,
@@ -176,6 +181,8 @@ class _ProductsPageState extends State<ProductsPage> {
             decoration: const InputDecoration(
               hintText: 'Search for a product...',
               prefixIcon: Icon(Icons.search),
+              border: InputBorder.none,
+              focusedBorder: InputBorder.none,
             ),
           ),
         ),
