@@ -157,7 +157,9 @@ class _HomePageState extends State<HomePage> {
       case 1:
         return AboutUsPage(merchant: widget.merchant);
       case 2:
-        return const FAQPage();
+        return FAQPage(
+          merchant: widget.merchant,
+        );
       case 3:
         return CheckoutPage(
           cart: _cart,

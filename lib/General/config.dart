@@ -36,6 +36,20 @@ List<Map<String,dynamic>> merchants =[
         "productPrice": "300",
       }
     ],
+    "FAQ": [
+      {
+        "question": "What products to we offer?",
+        "answer": "We offer a variety of coffee beans harvested and roasted from all over the world."
+      },
+      {
+        "question": "How can I place an order?",
+        "answer": "Orders can be placed directly through our store or partnered retailers."
+      },
+      {
+        "question": "Do you ship internationally?",
+        "answer": "Yes, we provide international shipping to select countries."
+      }
+    ]
   },
   {
     "merchantName": "Coffee Merchant 2",
@@ -72,5 +86,19 @@ List<Map<String,dynamic>> merchants =[
         "productPrice": "300",
       }
     ],
+    "FAQ": [
+      {
+        "question": "What products to we offer?",
+        "answer": "We offer a variety of coffee beans harvested and roasted from all over the world."
+      },
+      {
+        "question": "How can I place an order?",
+        "answer": "Orders can be placed directly through our store or partnered retailers."
+      },
+      {
+        "question": "Do you ship internationally?",
+        "answer": "Yes, we provide international shipping to select countries."
+      }
+    ]
   },
 ];
