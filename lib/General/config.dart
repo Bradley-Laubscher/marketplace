@@ -1,4 +1,5 @@
-// Global config variable used to set merchant information and skin
+// Global config variable used to set merchant information and skin.
+// The merchant is selected on the login page.
 
 List<Map<String,dynamic>> merchants =[
   {
