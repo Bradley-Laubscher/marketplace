@@ -17,7 +17,7 @@ class ProductsPage extends StatefulWidget {
 
 class _ProductsPageState extends State<ProductsPage> {
   final TextEditingController _searchController = TextEditingController();
-  List<dynamic> filteredProducts = [];
+  List<Map<String, dynamic>> filteredProducts = [];
 
   @override
   void initState() {
@@ -27,9 +27,8 @@ class _ProductsPageState extends State<ProductsPage> {
 
   void filterProducts(String query) {
     setState(() {
-      filteredProducts = widget.merchant["merchantProducts"]
-          .where((product) =>
-          product["productName"].toLowerCase().contains(query.toLowerCase()))
+      filteredProducts = List<Map<String, dynamic>>.from(widget.merchant["merchantProducts"])
+          .where((product) => product["productName"].toLowerCase().contains(query.toLowerCase()))
           .toList();
     });
   }
@@ -165,17 +164,18 @@ class _ProductsPageState extends State<ProductsPage> {
         const SizedBox(height: 20),
 
         // **Filter Input**
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        Container(
+          width: MediaQuery.of(context).size.width*0.3,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10)
+          ),
           child: TextField(
             controller: _searchController,
             onChanged: filterProducts,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: 'Search for a product...',
-              prefixIcon: const Icon(Icons.search),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
+              prefixIcon: Icon(Icons.search),
             ),
           ),
         ),
