@@ -17,8 +17,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0; // Track selected tab
-  List<Map<String, dynamic>> _cart = []; // Cart list to store selected products
+  int _selectedIndex = 0;
+  List<Map<String, dynamic>> _cart = [];
 
   @override
   Widget build(BuildContext context) {
@@ -33,76 +33,73 @@ class _HomePageState extends State<HomePage> {
           ),
           Column(
             children: [
-              // Merchant Title & Logo
-              Container(
-                padding: const EdgeInsets.all(12.0),
-                color: Color(widget.merchant["merchantPrimaryColour"]),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+              // **AppBar with Merchant Logo and Navigation Items**
+              AppBar(
+                automaticallyImplyLeading: false,
+                backgroundColor: Color(widget.merchant["merchantPrimaryColour"]),
+                title: Row(
                   children: [
-                    // Merchant Logo
-                    CircleAvatar(
-                      radius: 24, // Adjust size as needed
-                      backgroundImage: AssetImage(widget.merchant["merchantLogo"]),
-                      backgroundColor: Colors.transparent,
+                    // Merchant Logo and Name aligned to the left
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          radius: 24,
+                          backgroundImage: AssetImage(widget.merchant["merchantLogo"]),
+                          backgroundColor: Colors.transparent,
+                        ),
+                        const SizedBox(width: 10),
+                        Text(
+                          widget.merchant["merchantName"],
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 10), // Spacing between logo and title
-                    // Merchant Name
-                    Text(
-                      widget.merchant["merchantName"],
-                      style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic,
+                    // const SizedBox(width: 20), // Space between logo and navigation
+                    // Navigation items centered
+                    Expanded(
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            _buildNavItem("Products", 0),
+                            _buildNavItem("About Us", 1),
+                            _buildNavItem("FAQ", 2),
+                            _buildNavItem("Checkout", 3),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                actions: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      border: Border.all(
                         color: Colors.black,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                decoration: const BoxDecoration(
-                  border: Border(
-                    top: BorderSide(width: 1, color: Colors.black, style: BorderStyle.solid),
-                    bottom: BorderSide(width: 1, color: Colors.black, style: BorderStyle.solid)
-                  )
-                ),
-                child: AppBar(
-                  automaticallyImplyLeading: false,
-                  backgroundColor: Colors.white,
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      _buildNavItem("Products", 0),
-                      _buildNavItem("About Us", 1),
-                      _buildNavItem("FAQ", 2),
-                      _buildNavItem("Checkout", 3),
-                    ],
-                  ),
-                  actions: [
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 2,
-                          style: BorderStyle.solid
-                        )
-                      ),
-                      margin: const EdgeInsets.only(right: 10),
-                      child: IconButton(
-                        icon: const Icon(Icons.close),
-                        hoverColor: Colors.red,
-                        tooltip: "Log Out",
-                        onPressed: () {
-                          // Navigate back to LoginPage
-                          Navigator.pop(context);
-                        },
+                        width: 1,
+                        style: BorderStyle.solid,
                       ),
                     ),
-                  ],
-                ),
+                    margin: const EdgeInsets.only(right: 20),
+                    child: IconButton(
+                      icon: const Icon(Icons.close),
+                      hoverColor: Colors.red,
+                      tooltip: "Log Out",
+                      onPressed: () {
+                        // Navigate back to LoginPage
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ),
+                ],
               ),
+              // **Content**
               Expanded(child: _buildContent()),
             ],
           ),
@@ -122,11 +119,11 @@ class _HomePageState extends State<HomePage> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeInOut,
-        padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: _selectedIndex == index ? 8.0 : 4.0), // Adjust padding on selection
+        padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: _selectedIndex == index ? 8.0 : 4.0),
         child: AnimatedDefaultTextStyle(
           duration: const Duration(milliseconds: 200),
           style: TextStyle(
-            fontSize: _selectedIndex == index ? 20 : 18, // Slight size increase
+            fontSize: _selectedIndex == index ? 20 : 18,
             fontWeight: FontWeight.bold,
             color: _selectedIndex == index ? Colors.black : Colors.black38,
           ),
