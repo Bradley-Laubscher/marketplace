@@ -8,6 +8,14 @@ List<Map<String,dynamic>> merchants =[
     "merchantBackground": "assets/coffee_merchant/Coffee_Merchant.webp",
     "merchantBanner": "assets/coffee_merchant/Coffee_Banner.webp",
     "currencyCode": "710",
+    "aboutUs": "Nestled between the majestic Table Mountain and the sparkling waters of the Atlantic Ocean, we are a small, family-owned coffee roastery dedicated to bringing the finest flavors from the heart of Cape Town to your cup. Our story began with a shared passion for coffee and a desire to create something truly special for our community. "
+        "As Cape Town's vibrant coffee culture continues to grow, we saw an opportunity to introduce a unique blend of beans sourced from sustainable, ethical farms across Africa and Latin America. Each of our blends is carefully roasted to highlight the rich, complex flavors that make every sip a journey of its own. "
+        "We believe that coffee is more than just a drink – it’s an experience. Our roasts are designed to bring warmth, comfort, and a sense of connection to all who enjoy them. Whether you’re relaxing with a morning brew at our café, grabbing a quick pick-me-up, or enjoying a bag of our coffee at home, we are committed to delivering the freshest, most flavorful coffee possible. "
+        "At the heart of our business is a commitment to sustainability and supporting local farmers. We work directly with producers who share our vision for quality and ethical practices, ensuring that each cup you enjoy is not only delicious but also positively impacts the communities where the coffee is grown. "
+        "From our Cape Town home to your hands, we invite you to discover the art of exceptional coffee. Welcome to our world – where every cup tells a story.",
+    "merchantEmail": "contact@merchant.com",
+    "merchantPhoneNumber": "+27 21 123 4567",
+    "merchantLocation": "45 Coffee Street, Cape Town, South Africa",
     "merchantProducts": [
       {
         "productName": "Arabica",
@@ -27,7 +35,7 @@ List<Map<String,dynamic>> merchants =[
         "productImage": "assets/coffee_merchant/Libercia.jpg",
         "productPrice": "300",
       }
-    ]
+    ],
   },
   {
     "merchantName": "Coffee Merchant 2",
@@ -36,6 +44,14 @@ List<Map<String,dynamic>> merchants =[
     "merchantBackground": "assets/coffee_merchant/Coffee_Merchant.webp",
     "merchantBanner": "assets/coffee_merchant/Coffee_Banner.webp",
     "currencyCode": "710",
+    "aboutUs": "Nestled between the majestic Table Mountain and the sparkling waters of the Atlantic Ocean, we are a small, family-owned coffee roastery dedicated to bringing the finest flavors from the heart of Cape Town to your cup. Our story began with a shared passion for coffee and a desire to create something truly special for our community. "
+        "As Cape Town's vibrant coffee culture continues to grow, we saw an opportunity to introduce a unique blend of beans sourced from sustainable, ethical farms across Africa and Latin America. Each of our blends is carefully roasted to highlight the rich, complex flavors that make every sip a journey of its own. "
+        "We believe that coffee is more than just a drink – it’s an experience. Our roasts are designed to bring warmth, comfort, and a sense of connection to all who enjoy them. Whether you’re relaxing with a morning brew at our café, grabbing a quick pick-me-up, or enjoying a bag of our coffee at home, we are committed to delivering the freshest, most flavorful coffee possible. "
+        "At the heart of our business is a commitment to sustainability and supporting local farmers. We work directly with producers who share our vision for quality and ethical practices, ensuring that each cup you enjoy is not only delicious but also positively impacts the communities where the coffee is grown. "
+        "From our Cape Town home to your hands, we invite you to discover the art of exceptional coffee. Welcome to our world – where every cup tells a story.",
+    "merchantEmail": "contact@merchant.com",
+    "merchantPhoneNumber": "+27 21 123 4567",
+    "merchantLocation": "45 Coffee Street, Cape Town, South Africa",
     "merchantProducts": [
       {
         "productName": "Arabica",
@@ -55,6 +71,6 @@ List<Map<String,dynamic>> merchants =[
         "productImage": "assets/coffee_merchant/Libercia.jpg",
         "productPrice": "300",
       }
-    ]
+    ],
   },
 ];

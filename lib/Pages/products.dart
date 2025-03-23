@@ -87,10 +87,10 @@ class _ProductsPageState extends State<ProductsPage> {
                       child: SingleChildScrollView(
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Colors.black54,
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              width: 2,
+                              width: 1,
                               color: Color(widget.merchant["merchantPrimaryColour"]),
                             ),
                           ),
@@ -110,16 +110,16 @@ class _ProductsPageState extends State<ProductsPage> {
                                       style: const TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w600,
-                                        color: Colors.black87,
+                                        color: Colors.white,
                                       ),
                                     ),
                                     Text(
                                       product["productCaption"],
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 16,
                                         fontStyle: FontStyle.italic,
                                         fontWeight: FontWeight.w400,
-                                        color: Colors.grey[700],
+                                        color: Colors.white70,
                                         overflow: TextOverflow.ellipsis
                                       ),
                                     ),
@@ -128,6 +128,7 @@ class _ProductsPageState extends State<ProductsPage> {
                                       style: const TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w700,
+                                        color: Colors.white
                                       ),
                                     ),
                                   ],
@@ -191,7 +192,7 @@ class _ProductsPageState extends State<ProductsPage> {
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                width: 2,
+                width: 1,
                 color: Color(widget.merchant["merchantPrimaryColour"]),
                 style: BorderStyle.solid
               )
