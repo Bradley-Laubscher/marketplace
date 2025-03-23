@@ -37,44 +37,53 @@ class _HomePageState extends State<HomePage> {
               AppBar(
                 automaticallyImplyLeading: false,
                 backgroundColor: Color(widget.merchant["merchantPrimaryColour"]),
-                title: Row(
-                  children: [
-                    // Merchant Logo and Name aligned to the left
-                    Row(
+                title: LayoutBuilder(
+                  builder: (context, constraints) {
+                    // Only show the merchant name if the screen is wide enough
+                    bool showMerchantName = constraints.maxWidth > 600; // You can adjust this threshold
+
+                    return Row(
                       children: [
-                        CircleAvatar(
-                          radius: 24,
-                          backgroundImage: AssetImage(widget.merchant["merchantLogo"]),
-                          backgroundColor: Colors.transparent,
+                        // Merchant Logo and Name aligned to the left
+                        Row(
+                          children: [
+                            CircleAvatar(
+                              radius: 24,
+                              backgroundImage: AssetImage(widget.merchant["merchantLogo"]),
+                              backgroundColor: Colors.transparent,
+                            ),
+                            const SizedBox(width: 10),
+                            if (showMerchantName) // Conditionally display merchant name
+                              Text(
+                                widget.merchant["merchantName"],
+                                style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FontStyle.italic,
+                                  color: Colors.black,
+                                ),
+                              ),
+                          ],
                         ),
-                        const SizedBox(width: 10),
-                        Text(
-                          widget.merchant["merchantName"],
-                          style: const TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FontStyle.italic,
-                            color: Colors.black,
+                        // Scrollable Navigation items
+                        Expanded(
+                          child: Center(
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  _buildNavItem("Products", 0),
+                                  _buildNavItem("About Us", 1),
+                                  _buildNavItem("FAQ", 2),
+                                  _buildNavItem("Checkout", 3),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ],
-                    ),
-                    // const SizedBox(width: 20), // Space between logo and navigation
-                    // Navigation items centered
-                    Expanded(
-                      child: Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            _buildNavItem("Products", 0),
-                            _buildNavItem("About Us", 1),
-                            _buildNavItem("FAQ", 2),
-                            _buildNavItem("Checkout", 3),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                    );
+                  },
                 ),
                 actions: [
                   Container(
