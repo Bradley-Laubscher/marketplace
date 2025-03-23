@@ -34,6 +34,24 @@ List<Map<String,dynamic>> merchants =[
         "productCaption": "1kg Libercia Coffee Beans",
         "productImage": "assets/coffee_merchant/Libercia.jpg",
         "productPrice": "300",
+      },
+      {
+        "productName": "Excelsa",
+        "productCaption": "1kg Excelsa Coffee Beans",
+        "productImage": "assets/coffee_merchant/Excelsa.jpg",
+        "productPrice": "300",
+      },
+      {
+        "productName": "Canephora",
+        "productCaption": "1kg Canephora Coffee Beans",
+        "productImage": "assets/coffee_merchant/Canephora.jpg",
+        "productPrice": "300",
+      },
+      {
+        "productName": "Typica",
+        "productCaption": "1kg Typica Coffee Beans",
+        "productImage": "assets/coffee_merchant/Typica.jpg",
+        "productPrice": "300",
       }
     ],
     "FAQ": [
@@ -77,13 +95,31 @@ List<Map<String,dynamic>> merchants =[
         "productName": "Sourdough",
         "productCaption": "1kg Sourdough",
         "productImage": "assets/bakery_merchant/Sourdough.jpg",
-        "productPrice": "300",
+        "productPrice": "100",
       },
       {
         "productName": "Brioche",
         "productCaption": "1kg Brioche Dough",
         "productImage": "assets/bakery_merchant/Brioche_Dough.jpg",
-        "productPrice": "300",
+        "productPrice": "100",
+      },
+      {
+        "productName": "Choux",
+        "productCaption": "1kg Choux Dough",
+        "productImage": "assets/bakery_merchant/Choux_Dough.webp",
+        "productPrice": "100",
+      },
+      {
+        "productName": "Filo",
+        "productCaption": "1kg Filo Dough",
+        "productImage": "assets/bakery_merchant/Filo_Dough.webp",
+        "productPrice": "100",
+      },
+      {
+        "productName": "Shortcrust",
+        "productCaption": "1kg Shortcrust Dough",
+        "productImage": "assets/bakery_merchant/Shortcrust_Dough.jpeg",
+        "productPrice": "100",
       }
     ],
     "FAQ": [

@@ -72,12 +72,18 @@ flutter:
     - assets/coffee_merchant/Coffee_Merchant.webp
     - assets/coffee_merchant/Libercia.jpg
     - assets/coffee_merchant/Robusta.jpg
+    - assets/coffee_merchant/Excelsa.jpg
+    - assets/coffee_merchant/Canephora.jpg
+    - assets/coffee_merchant/Typica.jpg
     - assets/bakery_merchant/Bakery_Merchant.webp
     - assets/bakery_merchant/Bakery_Banner.webp
     - assets/bakery_merchant/Bakery_Logo.jpg
     - assets/bakery_merchant/Biscuit_Dough.jpg
     - assets/bakery_merchant/Brioche_Dough.jpg
     - assets/bakery_merchant/Sourdough.jpg
+    - assets/bakery_merchant/Choux_Dough.webp
+    - assets/bakery_merchant/Filo_Dough.webp
+    - assets/bakery_merchant/Shortcrust_Dough.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -125,22 +125,27 @@ class _HomePageState extends State<HomePage> {
           _selectedIndex = index;
         });
       },
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        curve: Curves.easeInOut,
-        padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: _selectedIndex == index ? 8.0 : 4.0),
-        child: AnimatedDefaultTextStyle(
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        // This is the key part to make the cursor change to a pointer
+        child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          style: TextStyle(
-            fontSize: _selectedIndex == index ? 20 : 18,
-            fontWeight: FontWeight.bold,
-            color: _selectedIndex == index ? Colors.black : Colors.black38,
+          curve: Curves.easeInOut,
+          padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: _selectedIndex == index ? 8.0 : 4.0),
+          child: AnimatedDefaultTextStyle(
+            duration: const Duration(milliseconds: 200),
+            style: TextStyle(
+              fontSize: _selectedIndex == index ? 20 : 18,
+              fontWeight: FontWeight.bold,
+              color: _selectedIndex == index ? Colors.black : Colors.black38,
+            ),
+            child: Text(title),
           ),
-          child: Text(title),
         ),
       ),
     );
   }
+
 
   // Builds content based on selected tab
   Widget _buildContent() {
