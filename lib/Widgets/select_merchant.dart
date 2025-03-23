@@ -29,8 +29,6 @@ class _SelectMerchantState extends State<SelectMerchant> {
             );
           }).toList(),
           decoration: InputDecoration(
-            labelText: "Select Merchant",
-            labelStyle: TextStyle(color: Colors.blueGrey[700]),
             contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),  // Match the same radius as other fields

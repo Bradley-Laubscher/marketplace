@@ -37,38 +37,20 @@ class _LoginCardState extends State<LoginCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+
+                    const Text(
+                      "Select a merchant",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20
+                      ),
+                    ),
+
                     // Select Merchant
                     const SelectMerchant(),
                     const SizedBox(height: 15),
-
-                    // Username Field
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: "Username",
-                        hintText: "Proceed to login - No Credentials needed for demonstration",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 15),
-
-                    // Password Field
-                    TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: "Password",
-                        hintText: "Proceed to login - No Credentials needed for demonstration",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
 
                     // Log In Button
                     ElevatedButton(
