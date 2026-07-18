@@ -1,16 +1,16 @@
-# 🛒 Marketplace
+# Marketplace
 
 **Marketplace** is a dynamic and reusable multi-merchant web application built with **Flutter** and **Dart**. It provides a flexible storefront that adapts to different merchants simply by updating a single configuration file.
 
 ---
 
-## 🧩 Overview
+## Overview
 
 This app is designed for scalability and customization. Instead of maintaining separate codebases for each store, the Marketplace app allows multiple merchant storefronts to coexist within one codebase — each with unique branding, theming, and products.
 
 ---
 
-## ✨ Features
+## Features
 
 - **Multi-Merchant Support**  
   Supports multiple merchants with their own:
@@ -32,7 +32,7 @@ This app is designed for scalability and customization. Instead of maintaining s
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Framework:** Flutter (Dart)
 - **State Management:** Provider
